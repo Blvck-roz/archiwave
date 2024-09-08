@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: archiwave
+spec:  
+  replicas: 3
+  selector:
+    matchLabels:
+      app: archiwave
+  template:
+    metadata:
+      labels:
+        app: archiwave
+    spec:
+      containers:
+      - name: archiwave
+        image: 975050001851.dkr.ecr.us-east-1.amazonaws.com/archiwave:latest  
+        ports:
+        - containerPort: 80
